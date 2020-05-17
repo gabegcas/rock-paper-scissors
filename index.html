@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <header>Rock Paper Scissors</header>
+        <p></p> 
+        <script>
+
+            var playerScore = 0;
+            var computerScore = 0;
+            var drawScore = 0;
+            const choice = ['ROCK', 'PAPER', 'SCISSORS'];
+
+            game();
+
+            function computerPlay() {
+                let i = Math.floor(Math.random() * 3);
+
+                return choice[i];
+            }
+
+            function playerPlay() {
+                let playerChoice = window.prompt('Enter');
+
+                playerChoice = playerChoice.toUpperCase();
+                
+                while(playerChoice != choice[0] && playerChoice != choice[1] && playerChoice != choice[2]) {
+                    playerChoice = window.prompt('Invalid Entry');
+                    playerChoice = playerChoice.toUpperCase();
+                }
+
+                return playerChoice;
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                playerSelection = playerPlay();
+                computerSelection = computerPlay();
+
+                console.log(playerSelection + ' vs ' + computerSelection);
+
+                if(playerSelection == choice[0]) {
+                    if(computerSelection == choice[0]) {
+                        console.log('Its a draw');
+                        drawScore++;
+                    }
+                    if(computerSelection == choice[1]) {
+                        console.log('Computer wins!');
+                        computerScore++;
+                    }
+                    if(computerSelection == choice[2]) {
+                        console.log('Player wins!');
+                        playerScore++;
+                    }
+                }
+
+                if(playerSelection == choice[1]) {
+                    if(computerSelection == choice[0]) {
+                        console.log('Player wins!');
+                        playerScore++;
+                    }
+                    if(computerSelection == choice[1]) {
+                        console.log('Its a draw');
+                        drawScore++;
+                    }
+                    if(computerSelection == choice[2]) {
+                        console.log('Computer wins!');
+                        computerScore++;
+                    }
+                }
+
+                if(playerSelection == choice[2]) {
+                    if(computerSelection == choice[0]) {
+                        console.log('Computer wins!');
+                        computerScore++;
+                    }
+                    if(computerSelection == choice[1]) {
+                        console.log('Player wins!');
+                        playerScore++;
+                    }
+                    if(computerSelection == choice[2]) {
+                        console.log('Its a draw');
+                        drawScore++;
+                    }
+                }
+            }
+
+            function game() {
+                for(let i = 0; i < 5; i++) {
+                    playRound();
+                }
+
+                console.log('Player Score: ' + playerScore + ' Computer Score: ' + computerScore + ' Draw Score: ' + drawScore);
+            }
+        </script>
+    </body>
+</html>
