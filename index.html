@@ -11,11 +11,11 @@
             var playerScore = 0;
             var computerScore = 0;
             var drawScore = 0;
-            const choice = ['ROCK', 'PAPER', 'SCISSORS'];
 
             game();
 
             function computerPlay() {
+                let choice = ['ROCK', 'PAPER', 'SCISSORS'];
                 let i = Math.floor(Math.random() * 3);
 
                 return choice[i];
@@ -26,7 +26,7 @@
 
                 playerChoice = playerChoice.toUpperCase();
                 
-                while(playerChoice != choice[0] && playerChoice != choice[1] && playerChoice != choice[2]) {
+                while(playerChoice != 'ROCK' && playerChoice != 'PAPER' && playerChoice != 'SCISSORS') {
                     playerChoice = window.prompt('Invalid Entry');
                     playerChoice = playerChoice.toUpperCase();
                 }
@@ -40,46 +40,46 @@
 
                 console.log(playerSelection + ' vs ' + computerSelection);
 
-                if(playerSelection == choice[0]) {
-                    if(computerSelection == choice[0]) {
+                if(playerSelection == 'ROCK') {
+                    if(computerSelection == 'ROCK') {
                         console.log('Its a draw');
                         drawScore++;
                     }
-                    if(computerSelection == choice[1]) {
+                    if(computerSelection == 'PAPER') {
                         console.log('Computer wins!');
                         computerScore++;
                     }
-                    if(computerSelection == choice[2]) {
+                    if(computerSelection == 'SCISSORS') {
                         console.log('Player wins!');
                         playerScore++;
                     }
                 }
 
-                if(playerSelection == choice[1]) {
-                    if(computerSelection == choice[0]) {
+                if(playerSelection == 'PAPER') {
+                    if(computerSelection == 'ROCK') {
                         console.log('Player wins!');
                         playerScore++;
                     }
-                    if(computerSelection == choice[1]) {
+                    if(computerSelection == 'PAPER') {
                         console.log('Its a draw');
                         drawScore++;
                     }
-                    if(computerSelection == choice[2]) {
+                    if(computerSelection == 'SCISSORS') {
                         console.log('Computer wins!');
                         computerScore++;
                     }
                 }
 
-                if(playerSelection == choice[2]) {
-                    if(computerSelection == choice[0]) {
+                if(playerSelection == 'SCISSORS') {
+                    if(computerSelection == 'ROCK') {
                         console.log('Computer wins!');
                         computerScore++;
                     }
-                    if(computerSelection == choice[1]) {
+                    if(computerSelection == 'PAPER') {
                         console.log('Player wins!');
                         playerScore++;
                     }
-                    if(computerSelection == choice[2]) {
+                    if(computerSelection == 'SCISSORS') {
                         console.log('Its a draw');
                         drawScore++;
                     }
